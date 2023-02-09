@@ -7,6 +7,7 @@ public class PCB {
    private int startTime=-1;
    private int terminateTime;
    private int remainder;
+   privete int entry;
 
 
    PCB(int id, int priority, int arrivalTime, int CPUBurst){
@@ -15,13 +16,14 @@ public class PCB {
       this.arrivalTime = arrivalTime;
       this.CPUBurst = CPUBurst;
       remainder = CPUBurst;
+      entry = arrivalTime;
    }
    
    //setters
 
    public void setStartTime(int startTime){this.startTime = startTime;}
    public void setTerminateTime(int terminateTime){this.terminateTime = terminateTime;}
-
+   public void setArrivalTime(int t){entry = t;}
    
    //getters
    public int getID(){
@@ -31,7 +33,8 @@ public class PCB {
       return priority;}
       
    public int getArrivalTime(){
-      return arrivalTime;}
+      return entry;}
+   public int getRealArrivalTime(){return arrivalTime;}
       
    public int getCPUBurst(){
       return CPUBurst;}
